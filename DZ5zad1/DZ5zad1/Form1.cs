@@ -557,6 +557,13 @@ namespace DZ5zad1
                     dirNode.Text = dir.Remove(0, dir.LastIndexOf("\\") + 1);
                     driveNode.Nodes.Add(dirNode);
                 }
+
+                string[] fill = Directory.GetFiles(path);
+                foreach (string f in fill)
+                {
+                    TreeNode dirNode = new TreeNode(new DirectoryInfo(f).Name);
+                    driveNode.Nodes.Add(dirNode);
+                }
             }
             catch (Exception)
             {
